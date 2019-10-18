@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+
+        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	<!--dubbo协议 默认：20881-->
+    <dubbo:protocol name="dubbo" port="20881"></dubbo:protocol>
+	<!--提供服务应用名称-->
+	<dubbo:application name="jiaoyiyu-sellergoods-service"/>
+	<!--注册中心地址-->
+    <dubbo:registry address="zookeeper://192.168.25.128:2181"/>
+	<!--通过扫描包的形势注册服务-->
+    <dubbo:annotation package="com.jiaoyiyu.sellergoods.service.impl" />
+	<!--调用服务层超时时间配置 默认1000毫秒-->
+	<dubbo:provider timeout="50000"/>
+   
+   
+</beans>
